@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { XRayConsumer } from './xray.consumer';
+import { SignalsModule } from 'src/signals/signals.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { XRayConsumer } from './xray.consumer';
         },
       },
     ]),
+    SignalsModule
   ],
   controllers: [XRayConsumer],
   providers: [],
