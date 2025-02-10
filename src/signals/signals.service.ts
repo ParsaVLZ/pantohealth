@@ -23,4 +23,39 @@ export class SignalsService {
       });
     }
   }
+  
+  async findAll(){
+    return this.xRayModel.find().exec();
+  }
+
+  async findById(id: string){
+    return this.xRayModel.findById(id).exec();
+  }
+
+  async createSignal(dto: any){
+    return this.xRayModel.create(dto);
+  }
+
+  async updateSignal(id: string, updateDto: any){
+    return this.xRayModel.findByIdAndUpdate(id, updateDto, { new: true }).exec();
+  }
+
+  async deleteSignal(id: string){
+    await this.xRayModel.findByIdAndDelete(id).exec();
+  }
+
+  async filterSignals(deviceId?: string, fromTime?: string, toTime?: string){
+    const filter: any = {};
+    if (deviceId) {
+      filter.deviceId = deviceId;
+    }
+    if (fromTime) {
+      filter.time = { ...filter.time, $gte: +fromTime };
+    }
+    if (toTime) {
+      filter.time = { ...filter.time, $lte: +toTime };
+    }
+    return this.xRayModel.find(filter).exec();
+  }
+
 }
