@@ -1,4 +1,3 @@
-// producer.module.ts
 import { Module } from '@nestjs/common';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { ProducerService } from './producer.service';
