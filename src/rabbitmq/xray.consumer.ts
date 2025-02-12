@@ -1,4 +1,3 @@
-// xray.consumer.ts
 import { Controller, Logger } from '@nestjs/common';
 import { MessagePattern, Payload } from '@nestjs/microservices';
 
