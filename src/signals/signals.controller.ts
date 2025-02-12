@@ -1,4 +1,3 @@
-// signals.controller.ts
 import { Controller, Get, Post, Body, Param, Patch, Delete, Query } from '@nestjs/common';
 import { SignalsService } from './signals.service';
 import { XRayDocument } from './schemas/xray.schema';
